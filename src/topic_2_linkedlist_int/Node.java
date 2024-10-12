@@ -9,7 +9,7 @@ package topic_2_linkedlist_int;
  *
  * @author ITLAB1-PC11-STUDENT
  */
-public class Node {
+public class Node { 
     
      //Initalizing variable data and Node next
      int data;  

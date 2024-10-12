@@ -6,55 +6,50 @@
 
 package arraylist;
 import java.util.ArrayList;
-/**
- *
- * @author HP
- */
+
 public class itemmanager {
-    
+
     private ArrayList<String> items;
-    
-    //Constructor to initialize the ArrayList
+    // Constructor to initialize the ArrayList
     public itemmanager() {
         items = new ArrayList<>();
+
     }
-    //To display all the items in list
+    // Display
     public void displayItems() {
         System.out.println("Items in the list: " + items);
     }
-    //To add new item
-    public void addItems(String item) {
+    // Insert Item
+    public void insertItem(String item) {
         items.add(item);
-        System.out.println("You Inserted: " + items);
+        System.out.println("Added " + item + " in the list");
     }
-    //To update an item
+    // Update via index
     public void updateItem(int index, String newItem) {
-        if(index >= 0 && index < items.size()) {
+        if (index >= 0 && index < items.size()) {
             String oldItem = items.set(index, newItem);
-            System.out.println("You updated: " + oldItem + " to " + newItem);
+            System.out.println("Updated: " + oldItem + " to " + newItem);
         } else {
             System.out.println("Index out of bounds");
         }
     }
-    //To find an item on the list
-    public int findItem(String finditem) {
-        int index = items.indexOf(finditem);
-
+    // Find
+    public int findItem(String item) {
+        int index = items.indexOf(item);
         if (index != -1) {
-            System.out.println("Found: " + finditem + " at index " + index);
+            System.out.println("Found: " + item + " at index " + index);
         } else {
-            System.out.println(finditem + " not found.");
+            System.out.println(item + " not found.");
         }
         return index;
     }
-    //To delete an item on the list
     public void deleteItem(int index) {
-        if(index >= 0 && index < items.size()) {
+        
+        if (index >= 0 && index < items.size()) {
             String removedItem = items.remove(index);
-            System.out.println("You have successfully deleted the name: " + removedItem);
+            System.out.println("Deleted: " + removedItem);
         } else {
-            System.out.println("Index out of bounds");
+            System.out.println("Index out of bounds.");
         }
     }
-        
 }
