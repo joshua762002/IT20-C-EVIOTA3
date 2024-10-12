@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package topic_linkedlist_string;
+package topic_2_linkedlist_string;
 
 /**
  *
