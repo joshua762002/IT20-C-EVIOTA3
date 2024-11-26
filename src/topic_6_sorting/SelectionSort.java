@@ -1,37 +1,37 @@
 package topic_6_sorting;
 
 public class SelectionSort {
-    public static void selectionSort(int[] arr) {
-        int n = arr.length;
-        for (int i = 0; i < n - 1; i++) {
-            int minIndex = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
-                    minIndex = j;
+    public static void selectionSort(int[] numbers) {
+        int length = numbers.length;
+        for (int current = 0; current < length - 1; current++) {
+            int smallestIndex = current;
+            for (int next = current + 1; next < length; next++) {
+                if (numbers[next] < numbers[smallestIndex]) {
+                    smallestIndex = next;
                 }
             }
-            // Swap the found minimum element with the first element
-            int temp = arr[minIndex];
-            arr[minIndex] = arr[i];
-            arr[i] = temp;
+            // Swap the found smallest element with the current element
+            int temp = numbers[smallestIndex];
+            numbers[smallestIndex] = numbers[current];
+            numbers[current] = temp;
         }
     }
 
-    public static void printArray(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
+    public static void printArray(int[] array) {
+        for (int number : array) {
+            System.out.print(number + " ");
         }
         System.out.println();
     }
 
     public static void main(String[] args) {
-        int[] arr = {64, 25, 12, 22, 11};
+        int[] numbers = {64, 25, 12, 22, 11};
         System.out.println("Original array:");
-        printArray(arr);
+        printArray(numbers);
 
-        selectionSort(arr);
+        selectionSort(numbers);
 
         System.out.println("Sorted array:");
-        printArray(arr);
+        printArray(numbers);
     }
 }

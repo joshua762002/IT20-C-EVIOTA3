@@ -1,53 +1,53 @@
 package topic_6_sorting;
 
 public class QuickSort {
-    public static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            int pi = partition(arr, low, high);
+    public static void quickSort(int[] numbers, int start, int end) {
+        if (start < end) {
+            int pivotIndex = partition(numbers, start, end);
 
             // Recursively sort elements before and after partition
-            quickSort(arr, low, pi - 1);
-            quickSort(arr, pi + 1, high);
+            quickSort(numbers, start, pivotIndex - 1);
+            quickSort(numbers, pivotIndex + 1, end);
         }
     }
 
-    private static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
-        int i = low - 1;
+    private static int partition(int[] numbers, int start, int end) {
+        int pivotValue = numbers[end];
+        int smallerIndex = start - 1;
 
-        for (int j = low; j < high; j++) {
-            if (arr[j] <= pivot) {
-                i++;
-                // Swap arr[i] and arr[j]
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+        for (int currentIndex = start; currentIndex < end; currentIndex++) {
+            if (numbers[currentIndex] <= pivotValue) {
+                smallerIndex++;
+                // Swap numbers[smallerIndex] and numbers[currentIndex]
+                int temp = numbers[smallerIndex];
+                numbers[smallerIndex] = numbers[currentIndex];
+                numbers[currentIndex] = temp;
             }
         }
 
-        // Swap arr[i + 1] and arr[high] (or pivot)
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
+        // Swap numbers[smallerIndex + 1] and numbers[end] (or pivotValue)
+        int temp = numbers[smallerIndex + 1];
+        numbers[smallerIndex + 1] = numbers[end];
+        numbers[end] = temp;
 
-        return i + 1;
+        return smallerIndex + 1;
     }
 
-    public static void printArray(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
+    public static void printArray(int[] numbers) {
+        for (int number : numbers) {
+            System.out.print(number + " ");
         }
         System.out.println();
     }
 
     public static void main(String[] args) {
-        int[] arr = {10, 80, 30, 90, 40, 50, 70};
+        int[] numbers = {10, 80, 30, 90, 40, 50, 70};
         System.out.println("Original array:");
-        printArray(arr);
+        printArray(numbers);
 
-        quickSort(arr, 0, arr.length - 1);
+        quickSort(numbers, 0, numbers.length - 1);
 
         System.out.println("Sorted array:");
-        printArray(arr);
+        printArray(numbers);
     }
 }
